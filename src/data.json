@@ -1,0 +1,147 @@
+[
+  {
+    "functionName": "doubleInteger",
+    "variableName": "i",
+    "commentText": "i will be an integer. Double it and return it.",
+    "consoleText": "Code as fast as you can! You need to double the integer and return it.\nTo test your code, click Go or hit Ctrl-Enter/⌘-Enter.",
+    "successText": "Click Go or hit Ctrl-Enter/⌘-Enter to move on to level 2!",
+    "tests": [
+      {
+        "input": 2,
+        "output": 4
+      },
+      {
+        "input": 4,
+        "output": 8
+      },
+      {
+        "input": -10,
+        "output": -20
+      },
+      {
+        "input": 0,
+        "output": 0
+      },
+      {
+        "input": 100,
+        "output": 200
+      }
+    ]
+  },
+  {
+    "functionName": "isNumberEven",
+    "variableName": "i",
+    "commentText": "i will be an integer. Return true if it's even, and false if it isn't.",
+    "consoleText": "Little bit trickier now. The clock's started ticking again. Return true or false depending on whether the number is even.\nYou can use console.log() and alert(); the results will show up here.",
+    "successText": "Two down, three to go. Ready for level 3? 'Go' or Ctrl-Enter/⌘-Enter to move on.",
+    "tests": [
+      {
+        "input": 2,
+        "output": true
+      },
+      {
+        "input": 3,
+        "output": false
+      },
+      {
+        "input": 0,
+        "output": true
+      },
+      {
+        "input": -2,
+        "output": true
+      },
+      {
+        "input": 27,
+        "output": false
+      }
+    ]
+  },
+  {
+    "functionName": "getFileExtension",
+    "variableName": "i",
+    "commentText": "i will be a string, but it may not have a file extension.\nreturn the file extension (with no period) if it has one, otherwise false",
+    "consoleText": "Here we go! Given a filename in a string (like 'test.jpg'), return the file extension (like 'jpg'), OR false if it doesn't have one.",
+    "successText": "Top work, that was tricky. Two challenges left! Ready to start the clock again?",
+    "tests": [
+      {
+        "input": "blatherskite.png",
+        "output": "png"
+      },
+      {
+        "input": "perfectlylegal.torrent",
+        "output": "torrent"
+      },
+      {
+        "input": "spaces are fine in file names.txt",
+        "output": "txt"
+      },
+      {
+        "input": "this does not have one",
+        "output": false
+      },
+      {
+        "input": ".htaccess",
+        "output": "htaccess"
+      }
+    ]
+  },
+  {
+    "functionName": "longestString",
+    "variableName": "i",
+    "commentText": "i will be an array.\nReturn the longest string in the array",
+    "consoleText": "Level 4 of 5! You'll get an array. Return the longest string inside it.",
+    "successText": "Well done! Only one challenge remains. It's time to get recursive.",
+    "tests": [
+      {
+        "input": ["a","ab","abc"],
+        "output": "abc"
+      },
+      {
+        "input": ["big",[0,1,2,3,4],"tiny"],
+        "output": "tiny"
+      },
+      {
+        "input": ["Hi","World","你好"],
+        "output": "World"
+      },
+      {
+        "input": [true,false,"lol"],
+        "output": "lol"
+      },
+      {
+        "input": [{"object": true, "mainly": "to confuse you"}, "x"],
+        "output": "x"
+      }
+    ]
+  },
+  {
+    "functionName": "arraySum",
+    "variableName": "i",
+    "commentText": "i will be an array, containing integers, strings and/or arrays like itself.\nSum all the integers you find, anywhere in the nest of arrays.",
+    "consoleText": "Final challenge! Sum all the integers in a nested array, no matter how many levels deep.",
+    "successText": "",
+    "tests": [
+      {
+        "input": [1,2,3,4,5],
+        "output": 15
+      },
+      {
+        "input": [[1,2,3],4,5],
+        "output": 15
+      },
+      {
+        "input": [[1,2,false],"4", "5"],
+        "output": 3
+      },
+      {
+        "input": [[[[[[[[[1]]]]]]]], 1],
+        "output": 2
+      },
+      {
+        "input": [["A","B","C","easy as",1,2,3]],
+        "output": 6
+      }
+    ]
+  }
+]
