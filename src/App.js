@@ -8,14 +8,14 @@ import data from './data.json'
 
 import './App.css'
 
-const challenge = (step, datas, setStartTime) => {
+const challenge = (step, datas, setStartDuration) => {
   const numberOfStep = data.length // challenge step number
   const stepInt = Math.floor(step) // to get the integer step number
 
   if (step < 1) { // if beginning => load start page
     return <MainPage { ...datas }/>
   } else if (step <= numberOfStep) { // if challenge started
-    if (datas.startTime === null) setStartTime(Date.now()) // set the challenge begin timestamp
+    if (datas.startDuration === null) setStartDuration(0) // set the challenge begin timestamp
     datas = { ...datas, ...data[stepInt - 1] } // => Load code editor Component with step's params
     return <Challenge {...datas}/>
   } else {
@@ -49,7 +49,7 @@ function App() {
   
   //  STATE
   const [step, setStep] = useState(0.5)
-  const [startTime, setStartTime] = useState(null)
+  const [startDuration, setStartDuration] = useState(null)
 
   //  to set background class
   const computeContainerClass = () => {
@@ -57,15 +57,15 @@ function App() {
 
     return `${classes.root} ${classe}`
   }
-  
+
   useEffect(() => {
-    if (step % 1 === 0.5 && startTime) {
+    if (step % 1 === 0) {
       const interval = setInterval(() => {
-        setStartTime(startTime + 1000)
+        setStartDuration(startDuration + 1)
       }, 1000)
       return () => clearInterval(interval)
     }
-  }, [step, startTime])
+  }, [step, startDuration])
 
   // RENDER
   return (
@@ -73,8 +73,8 @@ function App() {
       {
         challenge(step, {
           nextStep: () => setStep(step + 0.5),
-          startTime
-        }, setStartTime)
+          startDuration
+        }, setStartDuration)
       }
     </Container>
   )

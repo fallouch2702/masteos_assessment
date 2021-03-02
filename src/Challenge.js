@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const Challenge = ({ nextStep, functionName, variableName, commentText, consoleText, successText, tests, startTime }) => {
+const Challenge = ({ nextStep, functionName, variableName, commentText, consoleText, successText, tests, startDuration }) => {
 
   //  STATE
   const [code, setCode] = useState(formatCode(functionName, variableName, commentText))
@@ -78,7 +78,7 @@ const Challenge = ({ nextStep, functionName, variableName, commentText, consoleT
       if (itWorks) {
         setCodeWork(itWorks)
 
-        const doneText = `SUCCESS! All tests passed. You've used ${computeDuration(startTime)} so far. Well done!`
+        const doneText = `SUCCESS! All tests passed. You've used ${computeDuration(startDuration)} so far. Well done!`
         // Print success messages in console
         setConsoleStatus(addConsoleStatus(
           { text: doneText, type: 'done' },
@@ -102,7 +102,7 @@ const Challenge = ({ nextStep, functionName, variableName, commentText, consoleT
         justify="flex-end"
       >
         {/* TIME COUNTER */}
-        <Counter startTime={startTime}/>
+        <Counter startDuration={startDuration}/>
       </Grid>
       <Box border={2}>
         {/* CODE EDITOR */}

@@ -1,10 +1,8 @@
 // Format time counter and success message time
-export const computeDuration = startTime => {
-  const MINUTE = 1000 * 60 // 1 MINUTES
+export const computeDuration = duration => {
+  const MINUTE = 60 // 1 MINUTES
   const formatNumber = n => n.toString().padStart(2, '0') // Number on two digit
-  const now = Date.now()
-  const duration = now - startTime // duration between now and startTime
-  return `${(Math.floor(duration / MINUTE))}:${formatNumber(Math.floor((duration / 1000) % 60))}`
+  return `${(Math.floor(duration / MINUTE))}:${formatNumber(Math.floor(duration % 60))}`
 }
 
 // Format step starting code

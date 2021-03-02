@@ -22,13 +22,11 @@ const useStyle = makeStyles(theme => ({
   }
 }))
 
-const formatDuration = (startTime) => {
-  const now = Date.now()
-  const duration = now - startTime
+const formatDuration = duration => {
   return `${Math.floor(duration / (1000 * 60))} minutes, ${Math.floor((duration / 1000) % 60)} seconds`
 }
 
-const SuccessPage = ({ startTime }) => {
+const SuccessPage = ({ duration }) => {
 
 const classes = useStyle()
 
@@ -42,7 +40,7 @@ const classes = useStyle()
 
         <img src={youCan} alt="you can" className={classes.media}/>
 
-        <Typography>{ formatDuration(startTime) } for all 5 levels. Well done!</Typography>
+        <Typography>{ formatDuration(duration) } for all 5 levels. Well done!</Typography>
 
         <Grid item xs={6}>
           <Button variant="contained" className={classes.button} fullWidth>
