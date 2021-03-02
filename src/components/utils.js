@@ -7,12 +7,10 @@ export const computeDuration = duration => {
 
 // Format step starting code
 export const formatCode = (functionName, variableName, commentText) => {
-  commentText = ('//  ' + commentText).replace('\n', '\n//  ')
+  commentText = ('//  ' + commentText).replace('\n', '\n//  ') + '\n' // format comment
   return (
 `function ${functionName}(${variableName}) {
-  
 ${commentText}
-
     return ${variableName}
 }`
   )
@@ -26,7 +24,7 @@ export const addConsoleStatus = (...newStatus) => oldConsoleStatus => [ ...oldCo
 **    to test user code
 */
 
-const runCode = (code, setConsoleStatus) => {
+export const runCode = (code, setConsoleStatus) => {
   return new Promise((resolve, reject) => {
     const worker = new Worker('eval.worker.js') // create worker with custom worker
 

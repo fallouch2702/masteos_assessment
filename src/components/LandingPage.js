@@ -44,7 +44,7 @@ const MainPage = ({ nextStep }) => {
         wrap="nowrap"
       >
         {/* MAIN PAGE IMAGE */}
-        <img src={LandingPageImage} alt="You can't"/>
+        <img src={LandingPageImage} alt="you can't"/>
 
         <Grid>
           <Grid

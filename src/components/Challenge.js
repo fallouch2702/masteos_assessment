@@ -8,10 +8,7 @@ import Counter from './Counter'
 import { Box, Button, Grid, makeStyles } from "@material-ui/core"
 
 // utils functions
-import { computeDuration, formatCode, addConsoleStatus, testCode } from '../utils'
-
-import "ace-builds/src-noconflict/mode-java"
-import "ace-builds/src-noconflict/theme-github";
+import { computeDuration, formatCode, addConsoleStatus, testCode } from './utils'
 
 // DEFINE STYLE
 const useStyles = makeStyles(theme => ({
@@ -93,7 +90,7 @@ const Challenge = ({ nextStep, functionName, variableName, commentText, consoleT
               className={classes.button}
               variant="contained"
               fullWidth
-              onClick={handleClick}
+              onClick={nextStep}
             >
                 GO !
             </Button>

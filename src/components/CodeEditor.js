@@ -2,6 +2,9 @@ import { Box } from "@material-ui/core"
 import { useEffect, useState } from "react"
 import AceEditor from 'react-ace'
 
+import "ace-builds/src-noconflict/mode-java"
+import "ace-builds/src-noconflict/theme-github"
+
 const CodeEditor = ({ code, codeWork, onChange, testCode }) => {
 
   const [editorFocus, setEditorFocus] = useState(false)
@@ -24,7 +27,7 @@ const CodeEditor = ({ code, codeWork, onChange, testCode }) => {
 
 
   return (
-    <Box border={2}>
+    <Box border={2} data-testid="code-editor">
       <AceEditor
         mode="java"
         theme="github"
@@ -35,12 +38,6 @@ const CodeEditor = ({ code, codeWork, onChange, testCode }) => {
         onFocus={() => setEditorFocus(true)}
         onBlur={() => setEditorFocus(false)}
         readOnly={codeWork}
-        commands={[{
-          name: 'run',
-          bindKey: {win: 'Ctrl-Enter',  mac: 'Command-Enter'},
-          exec: () => console.log(this),
-          readOnly: true
-        }]}
       />
     </Box>
   )
