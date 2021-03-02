@@ -12,17 +12,21 @@ const useStyles = makeStyles(theme => ({
       padding: theme.spacing(10)
     },
     '& .MuiButton-label': {
-      fontSize: '34px',
+      fontSize: theme.typography.h3.fontSize,
       margin: theme.spacing(10)
     }
   },
   mainText: {
-    fontSize: 34,
-    fontWeight: 100
+    fontSize: theme.typography.h4.fontSize,
+    fontWeight: theme.typography.fontWeightLight,
+    marginBottom: theme.spacing(5)
   },
   boldText: {
-    fontSize: 34,
-    fontWeight: 900
+    fontSize: theme.typography.h4.fontSize,
+    fontWeight: theme.typography.fontWeightBold,
+    marginBottom: theme.spacing(5),
+    marginLeft: theme.spacing(1)
+
   }
 }))
 
@@ -52,12 +56,12 @@ const MainPage = ({ nextStep }) => {
             alignItems="center"
           >
             {/* MAIN PAGE TEXT */}
-            <Typography className={classes.mainText}>
+            <span varitant="h3" className={classes.mainText}>
               Five functions to fill. One ticking clock.
-            </Typography>
-            <Typography className={classes.boldText}>
+            </span>
+            <span varitant="h3" className={classes.boldText}>
               How fast can you code?
-            </Typography>
+            </span>
           </Grid>
           
           {/* START CHALLENGE BUTTON */}
