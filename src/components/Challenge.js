@@ -1,10 +1,14 @@
-import { Box, Button, Card, CardContent, Grid, makeStyles, Typography } from "@material-ui/core"
-import { useEffect, useState, useRef } from "react";
-import AceEditor from 'react-ace'
+import { useEffect, useState } from "react";
+
+
+// Components
+import CodeEditor from './CodeEditor'
+import Console from './Console'
 import Counter from './Counter'
+import { Box, Button, Grid, makeStyles } from "@material-ui/core"
 
 // utils functions
-import { computeDuration, formatCode, addConsoleStatus, testCode } from './utils'
+import { computeDuration, formatCode, addConsoleStatus, testCode } from '../utils'
 
 import "ace-builds/src-noconflict/mode-java"
 import "ace-builds/src-noconflict/theme-github";
@@ -19,33 +23,6 @@ const useStyles = makeStyles(theme => ({
   },
   statusRoot: {
     marginTop: theme.spacing(1)
-  },
-  statusCard: {
-    height: theme.spacing(20),
-    overflowY: 'scroll'
-  },
-  statusCardContent: {
-    padding: 0
-  },
-  status: {
-    fontSize: theme.typography.body1.fontSize,
-    fontFamily: '\'Monaco\', \'Menlo\', \'Ubuntu Mono\', \'Consolas\', \'source-code-pro\', monospace', 
-    whiteSpace: 'pre',
-    padding: theme.spacing(1),
-    '&.success': {
-      backgroundColor: theme.palette.success.light
-    },
-    '&.error': {
-      backgroundColor: theme.palette.error.dark,
-      color: theme.palette.background.paper
-    },
-    '&.log': {
-      background: theme.palette.text.disabled
-    },
-    '&.done': {
-      background: theme.palette.warning.dark,
-      color: theme.palette.background.paper
-    }
   }
 }))
 
@@ -55,14 +32,6 @@ const Challenge = ({ nextStep, functionName, variableName, commentText, consoleT
   const [code, setCode] = useState(formatCode(functionName, variableName, commentText))
   const [consoleStatus, setConsoleStatus] = useState([{ text: consoleText, type: 'success' }])
   const [codeWork, setCodeWork] = useState(false)
-
-  //  Console REF
-  const consoleRef = useRef()
-
-  // Scroll console to bottom on new message
-  useEffect(() => {
-    consoleRef.current.scrollTop = consoleRef.current.scrollHeight
-  }, [consoleStatus, consoleRef])
 
   // Init code editor and first console message
   useEffect(() => {
@@ -104,19 +73,13 @@ const Challenge = ({ nextStep, functionName, variableName, commentText, consoleT
         {/* TIME COUNTER */}
         <Counter startDuration={startDuration}/>
       </Grid>
-      <Box border={2}>
-        {/* CODE EDITOR */}
-        <AceEditor
-          className={classes.editor}
-          mode="java"
-          theme="github"
-          value={code}
-          onChange={v => setCode(v)}
-          width="100%"
-          fontSize="28px"
-          readOnly={codeWork}
-        />
-      </Box>
+      {/* CODE EDITOR */}
+      <CodeEditor
+        code={code}
+        codeWork={codeWork}
+        onChange={v => setCode(v)}
+        testCode={handleClick}
+      />
       <Grid
         container
         className={classes.statusRoot}
@@ -138,16 +101,11 @@ const Challenge = ({ nextStep, functionName, variableName, commentText, consoleT
         </Grid>
         {/* CONSOLE */}
         <Grid item xs={8}>
-          <Card className={classes.statusCard} ref={consoleRef}>
-            <CardContent className={classes.statusCardContent}>
-              {
-                //  Map console messages
-                consoleStatus.map((status, i) => {
-                  return <Typography key={i} className={`${classes.status} ${status.type}`}>{status.text}</Typography>
-                })
-              }
-            </CardContent>
-          </Card>
+          <Box border={1}>
+            <Console
+              consoleStatus={consoleStatus}
+            />
+          </Box>
         </Grid>
       </Grid>
     </Grid>

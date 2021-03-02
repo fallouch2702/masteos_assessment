@@ -1,5 +1,5 @@
-import { Grid, Typography, Button, makeStyles, Container } from '@material-ui/core'
-import LandingPageImage from './youcant.png'
+import { Grid, Button, makeStyles, Container } from '@material-ui/core'
+import LandingPageImage from './images/youcant.png'
 
 // DEFINE STYLE
 const useStyles = makeStyles(theme => ({
@@ -16,17 +16,14 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(10)
     }
   },
-  mainText: {
+  text: {
     fontSize: theme.typography.h4.fontSize,
     fontWeight: theme.typography.fontWeightLight,
-    marginBottom: theme.spacing(5)
-  },
-  boldText: {
-    fontSize: theme.typography.h4.fontSize,
-    fontWeight: theme.typography.fontWeightBold,
     marginBottom: theme.spacing(5),
-    marginLeft: theme.spacing(1)
-
+    '&.bold': {
+      marginLeft: theme.spacing(1),
+      fontWeight: theme.typography.fontWeightBold,
+    }
   }
 }))
 
@@ -56,10 +53,10 @@ const MainPage = ({ nextStep }) => {
             alignItems="center"
           >
             {/* MAIN PAGE TEXT */}
-            <span varitant="h3" className={classes.mainText}>
+            <span varitant="h3" className={classes.text}>
               Five functions to fill. One ticking clock.
             </span>
-            <span varitant="h3" className={classes.boldText}>
+            <span varitant="h3" className={classes.text + ' bold'}>
               How fast can you code?
             </span>
           </Grid>

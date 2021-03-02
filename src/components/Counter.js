@@ -1,6 +1,6 @@
 import { Typography } from "@material-ui/core"
 import { useEffect, useState } from "react"
-import { computeDuration } from './utils'
+import { computeDuration } from '../utils'
 
 const Counter = ({ startDuration }) => {
   const [duration, setDuration] = useState(computeDuration(startDuration))

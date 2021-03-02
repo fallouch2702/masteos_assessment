@@ -1,6 +1,6 @@
 import { Button, Grid, makeStyles, Typography } from "@material-ui/core"
 
-import youCan from './youcan.png'
+import youCan from './images/youcan.png'
 
 const useStyle = makeStyles(theme => ({
   text: {

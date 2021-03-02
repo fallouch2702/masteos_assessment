@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react'
 import { Container, makeStyles } from '@material-ui/core'
-import MainPage from './Main'
+import LandingPage from './LandingPage'
 import Challenge from './Challenge'
 import SuccessPage from './SuccessPage'
 
-import data from './data.json'
+// challenge data
+import data from '../data.json'
 
-import './App.css'
+// Import css
+import './styles/App.css'
 
 const challenge = (step, datas, setStartDuration) => {
   const numberOfStep = data.length // challenge step number
   const stepInt = Math.floor(step) // to get the integer step number
 
   if (step < 1) { // if beginning => load start page
-    return <MainPage { ...datas }/>
+    return <LandingPage { ...datas }/>
   } else if (step <= numberOfStep) { // if challenge started
     if (datas.startDuration === null) setStartDuration(0) // set the challenge begin timestamp
     datas = { ...datas, ...data[stepInt - 1] } // => Load code editor Component with step's params
