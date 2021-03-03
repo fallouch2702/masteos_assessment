@@ -88,7 +88,7 @@ const Challenge = ({ nextStep, functionName, variableName, commentText, consoleT
               className={classes.button}
               variant="contained"
               fullWidth
-              onClick={nextStep}
+              onClick={handleClick}
             >
                 GO !
             </Button>
