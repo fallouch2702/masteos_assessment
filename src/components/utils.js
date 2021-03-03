@@ -9,7 +9,7 @@ export const computeDuration = duration => {
 export const formatCode = (functionName, variableName, commentText) => {
   commentText = ('//  ' + commentText).replace('\n', '\n//  ') + '\n' // format comment
   return (
-`function ${functionName}(${variableName}) {
+    `function ${functionName}(${variableName}) {
 ${commentText}
     return ${variableName}
 }`
@@ -17,7 +17,7 @@ ${commentText}
 }
 
 // add new status message function
-export const addConsoleStatus = (...newStatus) => oldConsoleStatus => [ ...oldConsoleStatus, ...newStatus ]
+export const addConsoleStatus = (...newStatus) => oldConsoleStatus => [...oldConsoleStatus, ...newStatus]
 
 /*
 **  CODE TEST UTILS
@@ -67,7 +67,7 @@ export const testCode = async (code, tests, functionName, setConsoleStatus) => {
 
       const runningTestText = `Testing "${functionCall}"...` // message in console
       setConsoleStatus(addConsoleStatus({ text: runningTestText })) // adding message in console
-  
+
       // run user code
       // if user code ran without problems or timeout promise will resolve
       // else promise will reject
@@ -86,6 +86,6 @@ export const testCode = async (code, tests, functionName, setConsoleStatus) => {
   } catch (error) { // if an error occured during user code tests or a timeout
     setConsoleStatus(addConsoleStatus({ text: error, type: 'error' }))
     return false
-  } 
+  }
   return true
 }

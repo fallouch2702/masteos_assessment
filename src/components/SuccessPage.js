@@ -1,4 +1,4 @@
-import { Button, Grid, makeStyles, Typography } from "@material-ui/core"
+import { Button, Grid, makeStyles, Typography } from '@material-ui/core'
 
 import youCan from './images/youcan.png'
 
@@ -16,33 +16,32 @@ const useStyle = makeStyles(theme => ({
 }))
 
 const formatDuration = duration => {
-  return `${Math.floor(duration /  60)} minutes, ${Math.floor(duration % 60)} seconds`
+  return `${Math.floor(duration / 60)} minutes, ${Math.floor(duration % 60)} seconds`
 }
 
 const SuccessPage = ({ startDuration }) => {
-
-const classes = useStyle()
+  const classes = useStyle()
 
   return (
-      <Grid
-        container
-        direction="column"
-        alignItems="flex-start"
-        wrap="nowrap"
-      >
+    <Grid
+      container
+      direction="column"
+      alignItems="flex-start"
+      wrap="nowrap"
+    >
 
-        <img src={youCan} alt="you can" className={classes.media}/>
+      <img src={youCan} alt="you can" className={classes.media}/>
 
-        <Typography variant="h3" className={classes.text}>{ formatDuration(startDuration) } for all 5 levels. Well done!</Typography>
+      <Typography variant="h3" className={classes.text}>{ formatDuration(startDuration) } for all 5 levels. Well done!</Typography>
 
-          <Button variant="contained" className={classes.button + ' twitter'}>
+      <Button variant="contained" className={classes.button + ' twitter'}>
             Tweet your victory
-          </Button>
-        
-          <Button variant="contained" className={classes.button + ' facebook'}>
+      </Button>
+
+      <Button variant="contained" className={classes.button + ' facebook'}>
             Share on Facebook
-          </Button>
-      </Grid>
+      </Button>
+    </Grid>
   )
 }
 

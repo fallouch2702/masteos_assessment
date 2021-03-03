@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core"
+import { Typography } from '@material-ui/core'
 import { computeDuration } from './utils'
 
 const Counter = ({ startDuration }) => {

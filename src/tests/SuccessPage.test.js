@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import SuccessPage from '../components/SuccessPage'
 
-
 describe('Success page', () => {
-  test ('Should contains challenge duration', () => {
+  test('Should contains challenge duration', () => {
     render(<SuccessPage startDuration={150}/>)
     const successText = document.querySelector('h3')
     expect(successText).not.toBeNull()

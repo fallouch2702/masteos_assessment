@@ -1,5 +1,5 @@
-import { Card, CardContent, makeStyles, Typography } from "@material-ui/core"
-import { useEffect, useRef } from "react"
+import { Card, CardContent, makeStyles, Typography } from '@material-ui/core'
+import { useEffect, useRef } from 'react'
 
 const useStyle = makeStyles(theme => ({
   statusCard: {
@@ -14,7 +14,7 @@ const useStyle = makeStyles(theme => ({
   },
   status: {
     fontSize: theme.typography.body1.fontSize,
-    fontFamily: '\'Monaco\', \'Menlo\', \'Ubuntu Mono\', \'Consolas\', \'source-code-pro\', monospace', 
+    fontFamily: '\'Monaco\', \'Menlo\', \'Ubuntu Mono\', \'Consolas\', \'source-code-pro\', monospace',
     whiteSpace: 'pre',
     padding: theme.spacing(1),
     '&.success': {
@@ -35,7 +35,6 @@ const useStyle = makeStyles(theme => ({
 }))
 
 const Console = ({ consoleStatus }) => {
-
   const classes = useStyle()
 
   //  Console REF
@@ -52,7 +51,7 @@ const Console = ({ consoleStatus }) => {
       <CardContent className={classes.statusCardContent}>
         {
           //  Map console messages
-          consoleStatus.map((status, i) => 
+          consoleStatus.map((status, i) =>
             <Typography key={i} className={`${classes.status} ${status.type}`}>{status.text}</Typography>
           )
         }

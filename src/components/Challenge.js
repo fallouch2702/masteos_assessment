@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-
+import { useEffect, useState } from 'react'
 
 // Components
 import CodeEditor from './CodeEditor'
 import Console from './Console'
 import Counter from './Counter'
-import { Box, Button, Grid, makeStyles } from "@material-ui/core"
+import { Box, Button, Grid, makeStyles } from '@material-ui/core'
 
 // utils functions
 import { computeDuration, formatCode, addConsoleStatus, testCode } from './utils'
@@ -24,7 +23,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Challenge = ({ nextStep, functionName, variableName, commentText, consoleText, successText, tests, startDuration }) => {
-
   //  STATE
   const [code, setCode] = useState(formatCode(functionName, variableName, commentText))
   const [consoleStatus, setConsoleStatus] = useState([{ text: consoleText, type: 'success' }])
@@ -55,13 +53,13 @@ const Challenge = ({ nextStep, functionName, variableName, commentText, consoleT
     } else nextStep() // if code has been tested and works, go to next step
   }
 
-  //style
+  // style
   const classes = useStyles()
 
   return (
     <Grid
       container
-      direction="column"  
+      direction="column"
     >
       <Grid
         container

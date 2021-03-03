@@ -43,12 +43,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function App() {
-
+function App () {
   // STYLE
   const classes = useStyles()
 
-  
   //  STATE
   const [step, setStep] = useState(0.5)
   const [startDuration, setStartDuration] = useState(null)

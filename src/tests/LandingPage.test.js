@@ -1,9 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import LandingPage from '../components/LandingPage'
 
-
 describe('Landing page', () => {
-  test ('Should contains start button', () => {
+  test('Should contains start button', () => {
     render(<LandingPage/>)
     const startButton = screen.getByText('Start the game')
     expect(startButton).not.toBeNull()
@@ -13,7 +12,7 @@ describe('Landing page', () => {
     const image = screen.getByAltText('you can\'t')
     expect(image).not.toBeNull()
   })
-  test ('Next step on start button click', () => {
+  test('Next step on start button click', () => {
     const mockNextStep = jest.fn()
     render(<LandingPage nextStep={mockNextStep} />)
     const startButton = screen.getByText('Start the game')

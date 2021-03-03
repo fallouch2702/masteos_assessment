@@ -22,13 +22,12 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(5),
     '&.bold': {
       marginLeft: theme.spacing(1),
-      fontWeight: theme.typography.fontWeightBold,
+      fontWeight: theme.typography.fontWeightBold
     }
   }
 }))
 
 const MainPage = ({ nextStep }) => {
-
   // STYLE
   const classes = useStyles()
 
@@ -60,7 +59,7 @@ const MainPage = ({ nextStep }) => {
               How fast can you code?
             </span>
           </Grid>
-          
+
           {/* START CHALLENGE BUTTON */}
           <Button
             className={classes.button}

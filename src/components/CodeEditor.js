@@ -1,12 +1,11 @@
-import { Box } from "@material-ui/core"
-import { useEffect, useState } from "react"
+import { Box } from '@material-ui/core'
+import { useEffect, useState } from 'react'
 import AceEditor from 'react-ace'
 
-import "ace-builds/src-noconflict/mode-java"
-import "ace-builds/src-noconflict/theme-github"
+import 'ace-builds/src-noconflict/mode-java'
+import 'ace-builds/src-noconflict/theme-github'
 
 const CodeEditor = ({ code, codeWork, onChange, testCode }) => {
-
   const [editorFocus, setEditorFocus] = useState(false)
   const [onTesting, setOnTesting] = useState(false)
 
@@ -24,7 +23,6 @@ const CodeEditor = ({ code, codeWork, onChange, testCode }) => {
       return () => document.removeEventListener('keyup', cb)
     }
   }, [editorFocus, onTesting, testCode])
-
 
   return (
     <Box border={2} data-testid="code-editor">
